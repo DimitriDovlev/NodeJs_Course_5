@@ -14,7 +14,7 @@ fs.writeFile("homework.txt", "Hello from our first Node homework", function (err
     console.log("File created sucessfully")
 })
 
-fs.append("homework.txt", "FINISHED", function (error) {
-    if (error) throw error;
-    console.log("FINISHED")
-})
+// fs.append("homework.txt", "FINISHED", function (error) {
+//     if (error) throw error;
+//     console.log("FINISHED")
+// })
