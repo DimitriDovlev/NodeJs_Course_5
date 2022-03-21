@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
     if (req.url == "/") {
         res.setHeader("Content-Type", "text/html");
         return res.end(
-            `<form action='/users' method='POST'><input type='text' name='name'/><button type='submit'>SUBMIT</button> </form>
+            `<form action='/users' method='POST'>Name:<input type='text' name='name'/>age:<input type='text' name='age'/><button type='submit'>SUBMIT</button> </form>
             <p>id: ${dbJson.clients[0].id}</P>
             <p>name: ${dbJson.clients[0].name}</P>
             <p>age: ${dbJson.clients[0].age}</P>`
@@ -32,17 +32,19 @@ const server = http.createServer((req, res) => {
             console.log("data string:", dataString);
             console.log("data string Buffer.concat(chunks):", Buffer.concat(chunks));
             console.log("data string Buffer.concat(chunks).toString():", Buffer.concat(chunks).toString());
-            const splitedData = dataString.split("=");
+            const splitedData = dataString.split("&");
             console.log("Splited data", splitedData)
             const result = {
-                [splitedData[0]]: splitedData[1]
+                [splitedData[0].split("=")[0]]: splitedData[0].split("=")[1],
+                [splitedData[1].split("=")[0]]: splitedData[1].split("=")[1]
+
             };
             console.log("result", result);
 
-
             insertToDb(result)
-            // fs.writeFile(path.join(__dirname, db.dbJson), )
-            return res.end(`<h1>Newly added user: ${JSON.stringify(result.name)}</h1>`);
+            return res.end(`<h1>Newly added user:</h1>
+            <h1>Name: ${JSON.stringify(result.name)}</h1>
+            <h1>Age: ${JSON.stringify(result.age)}</h1>`);
         });
         // res.setHeader("Content-Type", "text/html");
         // return res.end(
@@ -53,8 +55,6 @@ const server = http.createServer((req, res) => {
     }
     console.log("URL: ", req.url);
     console.log("METHOD: ", req.method);
-    // console.log("METHOD: ", data);
-    // res.end("THIS IS OUR RESPONSE");
 
 }).listen(3000)
 
@@ -81,8 +81,8 @@ function insertToDb(newClient) {
 function readDb() {
     const data = fs.readFileSync("db.json", "utf-8")
 
-    console.log("data.toString()", data.toString());
-    console.log("data", data);
+    // console.log("data.toString()", data.toString());
+    // console.log("data", data);
     return data.toString();
 }
 // readDb()
