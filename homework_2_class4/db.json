@@ -60,5 +60,13 @@
         "name": "asd",
         "age": "33",
         "id": "6c6ff933-2417-444e-9c3a-529d3ad8f132"
+    }, {
+        "name": "novUser1",
+        "age": "23",
+        "id": "eec9de57-a566-4529-aa26-58ff4d8687e5"
+    }, {
+        "name": "Nesto",
+        "age": "30",
+        "id": "ceb33d0e-7861-4e6d-b98e-41cc4c20ca94"
     }]
 }
