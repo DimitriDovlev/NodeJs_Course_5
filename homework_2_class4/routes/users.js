@@ -34,6 +34,7 @@ router.get("/users", (req, res, next) => {
     let usersStringData = getData("db.json")
     let users = JSON.parse(usersStringData)
 
+    addData(users, "db.json")
     res.send(users);
 })
 
