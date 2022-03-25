@@ -3,6 +3,7 @@
 const http = require("http");
 const dbJson = require("./db.json")
 const fs = require("fs")
+const cors = require("cors");
 const path = require("path")
 const {
     v4: uuid
@@ -62,15 +63,19 @@ const users = require("./routes/users")
 
 
 const server = express();
-server.listen(3000)
+
 
 server.use((req, res, next) => {
     console.log("Date: ", Date.now());
     next();
 })
 
-server.use(users);
+server.use(cors());
+server.use(express.json())
+server.use(express.urlencoded({extended: false}))
+
 server.use(frontPage);
+server.use(users);
 
 function insertToDb(newClient) {
     const data = JSON.parse(readDb())
@@ -98,3 +103,5 @@ function readDb() {
     return data.toString();
 }
 // readDb()
+
+server.listen(3000)
