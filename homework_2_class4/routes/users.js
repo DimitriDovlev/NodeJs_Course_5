@@ -75,13 +75,23 @@ router.post("/users", (req, res, next) => {
 })
 
 
-router.get("/users/:id", (req, res) => {
-    let usersStringData = getData("db.json")
-    let users = JSON.parse(usersStringData)
+router.get("/users/:id", (req, res, next) => {
+    // let usersStringData = getData("db.json")
+    // let users = JSON.parse(usersStringData)
 
-    // console.log(__dirname)
-    const user = users.find((user) => user.id === req.params.id)
-    res.send(user)
+    // // console.log(__dirname)
+    // const user = users.find((user) => user.id === req.params.id)
+    // res.send(user)
+
+    const id = req.params.id;
+    const users = JSON.parse(getData("db.json"))
+    const user = users.find((user) => user.id === id)
+
+    if (!user) {
+        throw new Error("User not found")
+    }
+
+    res.send(user);
 })
 
 
