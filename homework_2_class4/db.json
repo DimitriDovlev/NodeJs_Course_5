@@ -1,76 +1,48 @@
-{
-    "clients": [{
-        "id": "59761c23b30d971669fb42ff",
-        "isActive": true,
-        "age": 36,
-        "name": "Dunlap Hubbard",
-        "gender": "male",
-        "company": "CEDWARD",
-        "email": "dunlaphubbard@cedward.com",
-        "phone": "+1 (890) 543-2508",
-        "address": "169 Rutledge Street, Konterra, Northern Mariana Islands, 8551"
-    }, {
-        "id": "59761c233d8d0f92a6b0570d",
-        "isActive": true,
-        "age": 24,
-        "name": "Kirsten Sellers",
-        "gender": "female",
-        "company": "EMERGENT",
-        "email": "kirstensellers@emergent.com",
-        "phone": "+1 (831) 564-2190",
-        "address": "886 Gallatin Place, Fannett, Arkansas, 4656"
-    }, {
-        "id": "59761c23fcb6254b1a06dad5",
-        "isActive": true,
-        "age": 30,
-        "name": "Acosta Robbins",
-        "gender": "male",
-        "company": "ORGANICA",
-        "email": "acostarobbins@organica.com",
-        "phone": "+1 (882) 441-3367",
-        "address": "697 Linden Boulevard, Sattley, Idaho, 1035"
-    }, {
-        "name": "novUser",
-        "id": "73e4153b-0520-44dc-85df-2e0c911ad33c"
-    }, {
-        "name": "novUser",
-        "id": "14ec95fc-1880-4393-bebb-0f162b6a8751"
-    }, {
-        "name": "novUser&age",
-        "id": "87ff4bbc-6bc0-49a4-9543-ab5e1d5ab827"
-    }, {
-        "name=asd": "age=22",
-        "id": "7fd7a57a-498e-4ce4-9ac1-3a3c32e328b9"
-    }, {
-        "name": "asd",
-        "id": "6da1771e-6395-4a03-9350-4fc96238c204"
-    }, {
-        "name": "asd",
-        "age": "33",
-        "id": "7bbb23e8-4109-4a1b-8af3-32ca7dda3f60"
-    }, {
-        "name": "asd",
-        "age": "33",
-        "id": "10bf1543-6de2-4d4e-8256-a538f367ca81"
-    }, {
-        "name": "asd",
-        "age": "33",
-        "id": "7b05b64c-e89e-4339-935f-a3e10592ebaa"
-    }, {
-        "name": "asd",
-        "age": "33",
-        "id": "6c6ff933-2417-444e-9c3a-529d3ad8f132"
-    }, {
-        "name": "novUser1",
-        "age": "23",
-        "id": "eec9de57-a566-4529-aa26-58ff4d8687e5"
-    }, {
-        "name": "Nesto",
-        "age": "30",
-        "id": "ceb33d0e-7861-4e6d-b98e-41cc4c20ca94"
-    }, {
-        "name": "dsa",
-        "age": "123",
-        "id": "2a840063-1944-4cde-b8bd-ceb853be2a09"
-    }]
-}
+[{
+    "name": "novUser",
+    "id": "73e4153b-0520-44dc-85df-2e0c911ad33c"
+}, {
+    "name": "novUser",
+    "id": "14ec95fc-1880-4393-bebb-0f162b6a8751"
+}, {
+    "name": "novUser&age",
+    "id": "87ff4bbc-6bc0-49a4-9543-ab5e1d5ab827"
+}, {
+    "name=asd": "age=22",
+    "id": "7fd7a57a-498e-4ce4-9ac1-3a3c32e328b9"
+}, {
+    "name": "asd",
+    "id": "6da1771e-6395-4a03-9350-4fc96238c204"
+}, {
+    "name": "asd",
+    "age": "33",
+    "id": "7bbb23e8-4109-4a1b-8af3-32ca7dda3f60"
+}, {
+    "name": "asd",
+    "age": "33",
+    "id": "10bf1543-6de2-4d4e-8256-a538f367ca81"
+}, {
+    "name": "asd",
+    "age": "33",
+    "id": "7b05b64c-e89e-4339-935f-a3e10592ebaa"
+}, {
+    "name": "asd",
+    "age": "33",
+    "id": "6c6ff933-2417-444e-9c3a-529d3ad8f132"
+}, {
+    "name": "novUser1",
+    "age": "23",
+    "id": "eec9de57-a566-4529-aa26-58ff4d8687e5"
+}, {
+    "name": "Nesto",
+    "age": "30",
+    "id": "ceb33d0e-7861-4e6d-b98e-41cc4c20ca94"
+}, {
+    "name": "dsa",
+    "age": "123",
+    "id": "2a840063-1944-4cde-b8bd-ceb853be2a09"
+}, {
+    "name": "name12",
+    "age": "33",
+    "id": "02f56a29-dd2e-4c75-8ab9-b86ab06f9954"
+}]
