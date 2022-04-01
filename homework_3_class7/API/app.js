@@ -13,7 +13,7 @@ app.use(express.urlencoded({
     extended: false
 }));
 
-//zosto e /api ovde a ne /users
+
 app.use("/api", router)
 
 
