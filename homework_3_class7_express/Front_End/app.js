@@ -1,18 +1,18 @@
-{
-    /* <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div> */
-}
+{/* <div class="col-md-6">
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="${imgSrc}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Id: ${id}</h5>
+      <h5 class="card-title">Name: ${name}</h5>
+      <h5 class="card-title">Phone Number: ${phoneNumber}</h5>
+    </div>
+  </div>
+  </div> */}
 
 const cardInner = document.querySelector("#cardInner")
 
 const card = (id, name, phoneNumber, imgSrc) => {
-    return `<div class="col-md-6">
+    return `<div class="col-md-4">
     <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="${imgSrc}" alt="Card image cap">
     <div class="card-body">
