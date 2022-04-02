@@ -37,6 +37,21 @@ server.get("/users/:id", (req, res, next) => {
     res.send(user);
 })
 
+server.post("/users/addUsers", (req, res, next) => {
+    // name, phoneNumber, picture, and an ID generated on the backend.
+    console.log(req.body);
+    const user = {
+        name: req.body.name,
+        phoneNumber: req.body.phoneNumber,
+        imgSrc: req.body.imgSrc,
+        id: uuid()
+    }
+    console.log(user);
+    CRUD.addDataToDb(user, "db.json")
+    res.send({
+        message: "New user has been added"
+    })
+})
 
 const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || "0.0.0.0";
