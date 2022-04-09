@@ -13,26 +13,27 @@ server.use(express.urlencoded({
     extended: false
 }))
 
-server.get("/", (req, res, next) => {
-    let stringData = CRUD.readDataFromDb("db.json")
-    let data = JSON.parse(stringData);
-    res.send(data);
-})
+// server.get("/", (req, res, next) => {
+//     let stringData = CRUD.readDataFromDb("db.json")
+//     let data = JSON.parse(stringData);
+//     res.send(data);
+// })
 
-server.get("/users", (req, res, next) => {
-    let stringData = CRUD.readDataFromDb("db.json")
-    let data = JSON.parse(stringData);
-    res.send(data)
-})
+// server.get("/users", (req, res, next) => {
+//     let stringData = CRUD.readDataFromDb("db.json")
+//     let data = JSON.parse(stringData);
+//     res.send(data)
+// })
 
 
-server.get("/users/:id", (req, res, next) => {
+server.get("/users/:id?", (req, res, next) => {
     let id = req.params.id;
     let stringData = CRUD.readDataFromDb("db.json")
     let data = JSON.parse(stringData);
     const user = data.find((user) => user.id === id)
     if (!user) {
-        throw new Error("User not found!")
+        // throw new Error("User not found!")
+        res.send(data)
     }
     res.send(user);
 })
@@ -46,12 +47,28 @@ server.post("/users/addUsers", (req, res, next) => {
         imgSrc: req.body.imgSrc,
         id: uuid()
     }
-    console.log(user);
     CRUD.addDataToDb(user, "db.json")
     res.send({
         message: "New user has been added"
     })
 })
+
+server.delete("/users/:id", (req, res, next) => {
+    const id = req.params.id;
+    CRUD.deleteDataFromDb(id, "db.json")
+
+    res.send(JSON.stringify({
+        id: id,
+        deleted: true,
+    }))
+})
+
+server.put("/users/:id", (req, res, next) => {
+    const id = req.params.id;
+    const user = req.body;
+    const updatedUser = CRUD.updateDataFromDb(id, user, "db.json");
+    res.send(updatedUser);
+});
 
 const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || "0.0.0.0";
