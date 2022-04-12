@@ -38,14 +38,26 @@ server.get("/users/:id?", (req, res, next) => {
     res.send(user);
 })
 
+//middleware to check if phone number has 6 digits
+server.post("/users/addUsers", (req, res, next) => {
+    console.log("first post");
+    if (req.body.phoneNumber.length == 6) {
+        next()
+    } else {
+        res.send({
+            message: "Phone number needs to be 6 digits"
+        })
+    }
+
+})
+
 server.post("/users/addUsers", (req, res, next) => {
     // name, phoneNumber, picture, and an ID generated on the backend.
-    console.log(req.body);
     const user = {
+        id: uuid(),
         name: req.body.name,
         phoneNumber: req.body.phoneNumber,
         imgSrc: req.body.imgSrc,
-        id: uuid()
     }
     CRUD.addDataToDb(user, "db.json")
     res.send({
