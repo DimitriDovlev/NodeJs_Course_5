@@ -6,13 +6,34 @@ const carDbPath = path.join(__dirname, "..", "db.json");
 
 class CarModel {
   // 1. fetch all cars from the database
-  static async getAllCars() {
-    return textService.readData(carDbPath);
+  static async getAllCars(queryData) {
+    const cars = await textService.readData(carDbPath);
+    function filterByLengthAndBrand(queryLength, queryBrand) {
+      const element = [];
+      for (let i = 0; i < queryLength; i++) {
+        if (cars[i] !== undefined && cars[i].brand === queryBrand) {
+          element.push(cars[i]);
+        }
+      }
+      return element;
+    }
+
+    if (queryData?.brand!=="" && queryData?.pageSize!=="") {
+      const filteredCars = filterByLengthAndBrand(
+        queryData.pageSize,
+        queryData.brand
+      );
+      return filteredCars;
+    }else{
+      console.log(cars);
+      return cars;
+    }
   }
 
   //2. fetch a single car by ID from the database
   static async getCarById(carId) {
-    const cars = await this.getAllCars();
+    const cars = await this.getAllCars("");
+    console.log(cars);
     const foundCar = cars.find((car) => car.id === carId);
     if (foundCar) {
       return foundCar;

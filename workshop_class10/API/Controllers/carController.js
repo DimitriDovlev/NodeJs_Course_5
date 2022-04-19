@@ -4,7 +4,8 @@ class CarController {
   // 1. fetch all cars from the database
   static async getAllCars(req, res) {
     try {
-      const cars = await CarModel.getAllCars();
+      const queryData = req.query;
+      const cars = await CarModel.getAllCars(queryData);
       res.status(200).send(cars);
     } catch (error) {
       res.status(400).send(error);
@@ -50,7 +51,7 @@ class CarController {
       const { id: carId } = req.params;
       const carUpdate = req.body;
       await CarModel.updateCar(carId, carUpdate);
-      res.status(200).send(carUpdate)
+      res.status(200).send(carUpdate);
     } catch (error) {
       res.status(400).send(error);
     }
